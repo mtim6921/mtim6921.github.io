@@ -1,58 +1,146 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import SkillCard from "../components/SkillCard.astro";
+import Footer from "../components/Footer.astro";
+import gsap from "gsap";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Timur Muedinov | Developer, Videographer">
   <main>
-    <h1>Welcome to <span class="text-gradient">Astro</span></h1>
-    <p class="instructions">
-      To get started, open the directory <code>src/pages</code> in your project.<br
-      />
-      <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-    </p>
-    <ul role="list" class="link-card-grid">
-      <Card
-        href="https://docs.astro.build/"
-        title="Documentation"
-        body="Learn how Astro works and explore the official API docs."
-      />
-      <Card
-        href="https://astro.build/integrations/"
-        title="Integrations"
-        body="Supercharge your project with new frameworks and libraries."
-      />
-      <Card
-        href="https://astro.build/themes/"
-        title="Themes"
-        body="Explore a galaxy of community-built starter themes."
-      />
-      <Card
-        href="https://astro.build/chat/"
-        title="Community"
-        body="Come say hi to our amazing Discord community. ❤️"
-      />
-    </ul>
+    <section class="landing-section">
+      <h1 class="main-heading">
+        Blending <br /><span class="text-gradient">Creative Vision</span> with <br
+        /><span class="text-gradient2">problem solving</span>
+      </h1>
+      <div class="gradient-overlay"></div>
+    </section>
+    <section class="skills">
+      <h2 id="skills" class="skills-heading">Skills</h2>
+      <SkillCard />
+    </section>
+    <h2 id="projects">Projects</h2>
+    <section class="projects">
+      <div>
+        <h4>Programming</h4>
+        <p>
+          Worked as a Frontend Developer in a big enterprise scale applications
+          using React, Typescript and .NET.
+          <p></p>
+          <p>
+            Built a full-stack web application using React, Node.js, Express and
+            MongoDB.
+          </p>
+          <h4>Videography/Photography</h4>
+          <p>
+            Collborated as a photographer/videographer for an online shop brand
+            "The Reikan Project", which included model and product photography
+            as well as promotional instagram reels.
+          </p>
+          <p>
+            A YouTube channel with cinematic short films, hiking videos and
+            various martial art edits and tutorials.
+            <!-- A full-stack web application. Uniify.ai is a teaching platform that
+          allows users to create courses, teach existing courses in real time
+          and enroll in other users courses. The platform provides an engine to
+          create fully customizable courses, automate the lessons and the flow
+          of the course. -->
+          </p>
+        </p>
+      </div>
+      <div></div>
+      <div>
+        <img
+          src="https://img.freepik.com/premium-psd/website-instant-showcase-mockup-isolated_359791-347.jpg?w=2000"
+          alt=""
+        />
+      </div>
+    </section>
+    <section>
+      <h2 id="experience">Experience</h2>
+    </section>
+    <section>
+      <h2 id="education">Education</h2>
+    </section>
+    <Footer />
+    <!-- <Cursor /> -->
   </main>
 </Layout>
 
 <style>
-  main {
-    margin: auto;
-    padding: 1.5rem;
-    max-width: 60ch;
+  footer {
+    padding: 3rem 5rem;
+  }
+  #background-video {
+    position: absolute;
+    width: 100%;
+    height: auto;
+  }
+
+  .skills {
+    color: white;
+    padding: 3rem 5rem;
+  }
+
+  .landing-section {
+    margin-top: -8rem;
+    overflow: hidden;
+    z-index: -1;
+    background-image: url("../assets/images/code.gif");
+    width: 100%;
+    position: relative;
+    font-family: "Lora", serif;
+    height: 100vh;
+  }
+  .gradient-overlay {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 1) 100%
+    );
+  }
+  .main-heading {
+    color: white;
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    left: 1rem;
   }
   h1 {
-    font-size: 3rem;
-    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 6.5vw;
+    font-family: "Roboto", sans-serif;
+    line-height: 9rem;
     margin: 0;
   }
+  h1::after {
+    content: "";
+    width: 5vw;
+    height: 5px;
+    background: rgb(0, 166, 255);
+    display: inline-block;
+    animation: cursor-blink 1.5s steps(2) infinite;
+  }
+
   .text-gradient {
-    background-image: var(--accent-gradient);
+    font-size: 10vw;
+    font-family: "Monoton", cursive;
+    font-weight: 400;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    animation: gradient 5s ease infinite;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-size: 400%;
     background-position: 0%;
+  }
+  .text-gradient2 {
+    color: rgb(0, 166, 255);
+    font-size: 9vw;
+    font-family: "Source Code Pro", monospace;
   }
   .instructions {
     line-height: 1.6;
@@ -61,6 +149,16 @@ import Card from "../components/Card.astro";
     background-color: white;
     padding: 1rem;
     border-radius: 0.4rem;
+  }
+  .projects {
+    display: flex;
+    background-color: black;
+    color: white;
+    padding: 1rem 5rem;
+  }
+  .projects img {
+    max-width: 40rem;
+    margin: 3rem;
   }
   .instructions code {
     font-size: 0.875em;
@@ -78,5 +176,21 @@ import Card from "../components/Card.astro";
     grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
     gap: 1rem;
     padding: 0;
+  }
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  @keyframes cursor-blink {
+    0% {
+      opacity: 0;
+    }
   }
 </style>

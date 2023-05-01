@@ -1,0 +1,159 @@
+---
+import {
+  SiAstro,
+  SiReact,
+  SiCsharp,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiExpress,
+  SiMysql,
+  SiMongodb,
+} from "react-icons/si";
+import { BsCode, BsCameraVideo } from "react-icons/bs";
+---
+
+<div class="skill-cards">
+  <div>
+    <h3><BsCode /> Programming</h3>
+    <div class="skill-section">
+      <div class="card-grid">
+        <p class="grid-p">
+          Functional and Object Oriented Programming: Javascript, Typescript,
+          C#.
+        </p>
+        <ul class="grid-ul1">
+          <h4>Frontend</h4>
+          <li><SiReact /> React.js</li>
+          <li><SiAstro /> Astro</li>
+        </ul>
+        <ul class="grid-ul2">
+          <h4>Backend</h4>
+          <li><SiNodedotjs /> Node.js <SiExpress /></li>
+          <li><SiNextdotjs /> Next.js</li>
+          <li><SiCsharp /> .NET</li>
+        </ul>
+        <ul class="grid-ul3">
+          <h4>Database</h4>
+          <li><SiMysql /> MySQL</li>
+          <li><SiMongodb /> MongoDB</li>
+        </ul>
+      </div>
+      <div>
+        <p class="desc-p">
+          As far back as I can remember, I grew up solving jigsaw puzzles,
+          building stuff out of Lego blocks, coming up with my own puzzles and
+          games. <br /><br />
+          I have transferred this passion into my adult life, becoming a full stack
+          web developer, expanding my abilities further.
+          <br /><br />
+          The unlimited posibilities and the pure problem solving and logic, that
+          programming involves, brings me joy, excitement and satisfaction.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h3 class="float-right"><BsCameraVideo /> Videography</h3>
+    <div class="skill-section">
+      <div>
+        <p class="desc-p">
+          One of my values and goals is to share my vision and connect with
+          others. We live in an incredible time where technology makes it
+          possible.
+          <br /><br />
+          Aside from learning a huge variety of skills, videography allows me to
+          creatively express myself through visual storytelling and editting.
+          <br /><br />
+          While it is a form of art, I believe that videos are a great way to share
+          experiences, ideas and knowledge with others.
+        </p>
+      </div>
+      <div class="card-grid card-grid2">
+        <p class="grid-p">
+          Professional experience in filming sport events, festivals and
+          editting highlights and other various visual media.
+        </p>
+        <ul class="grid-ul1">
+          <h4>Editting</h4>
+          <li>Davinci Resolve</li>
+          <li>Adobe Photoshop</li>
+          <li>Adobe Lightroom</li>
+        </ul>
+        <ul class="grid-ul2">
+          <h4>Expertise</h4>
+          <li>Technical & Creative</li>
+          <li>Color Grading</li>
+          <li>Digital Editting</li>
+          <li>Sound Mixing</li>
+        </ul>
+        <ul class="grid-ul3">
+          <h4>Traits</h4>
+          <li>Attention to Detail</li>
+          <li>Exploration/Creativity</li>
+          <li>Self driven</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .skill-section {
+      display: flex;
+    }
+    .desc-p {
+      padding: 1rem 3rem;
+      max-width: 35rem;
+    }
+    .float-right {
+      text-align: end;
+    }
+
+    li {
+      line-height: 3rem;
+    }
+
+    li > svg {
+      font-size: 3rem;
+    }
+
+    .skill-cards {
+      display: flex;
+      flex-direction: column;
+    }
+    ul {
+      padding: 1rem;
+      list-style: none;
+    }
+    .grid-p {
+      grid-area: main;
+    }
+    .grid-ul1 {
+      grid-area: ul1;
+    }
+    .grid-ul2 {
+      grid-area: ul2;
+    }
+    .grid-ul3 {
+      grid-area: ul3;
+    }
+    .card-grid {
+      flex-grow: 1;
+      max-width: 50rem;
+      padding: 3rem;
+      border: 2px solid rgba(215, 215, 215, 0.135);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      grid-template-areas:
+        "main main main"
+        "ul1 ul2 ul3";
+      margin-bottom: 3rem;
+    }
+    .card-grid2 {
+      margin-left: auto;
+    }
+    .card-grid p {
+      padding: 1rem;
+    }
+  </style>
+</div>
