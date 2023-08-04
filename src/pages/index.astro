@@ -1,71 +1,139 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import SkillCard from "../components/SkillCard.astro";
-import Footer from "../components/Footer.astro";
+import experienceData from "../data/experienceData.json";
+import educationData from "../data/educationData.json";
+import Projects from "../components/Projects";
+import Accordion from "../components/Accordion";
+import portrait from "../assets/images/bodyshot.png";
 ---
 
-<Layout title="Timur Muedinov | Developer, Videographer">
+<Layout navigation={true} title="Timur Muedinov | Developer, Videographer">
   <main>
     <section class="landing-section">
-      <h1 class="main-heading">
-        Blending <br /><span class="text-gradient">Creative Vision</span> with <br
-        /><span class="text-gradient2">problem solving</span>
-      </h1>
+      <div class="iframe-container">
+        <iframe
+          frameborder="0"
+          src="https://player.vimeo.com/video/851520076?h=f2e82d1eae&autoplay=1&loop=1&title=0&byline=0&portrait=0?background=1"
+          class="background-vimeo"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+      <div class="main-heading">
+        <h1>
+          Blending <span class="text-gradient">Creative Vision</span> and
+          <span class="text-gradient2">problem solving</span>
+        </h1>
+        <button class="btn hoverable"><a href="#about">LET'S MEET!</a></button>
+      </div>
       <div class="gradient-overlay"></div>
     </section>
-    <section class="skills">
-      <h2 id="skills" class="skills-heading">Skills</h2>
-      <SkillCard />
-    </section>
-    <h2 id="projects">Projects</h2>
-    <section class="projects">
-      <div>
-        <h4>Programming</h4>
-        <p>
-          Worked as a Frontend Developer in a big enterprise scale applications
-          using React, Typescript and .NET.
-          <p></p>
-          <p>
-            Built a full-stack web application using React, Node.js, Express and
-            MongoDB.
-          </p>
-          <h4>Videography/Photography</h4>
-          <p>
-            Collborated as a photographer/videographer for an online shop brand
-            "The Reikan Project", which included model and product photography
-            as well as promotional instagram reels.
-          </p>
-          <p>
-            A YouTube channel with cinematic short films, hiking videos and
-            various martial art edits and tutorials.
-            <!-- A full-stack web application. Uniify.ai is a teaching platform that
-          allows users to create courses, teach existing courses in real time
-          and enroll in other users courses. The platform provides an engine to
-          create fully customizable courses, automate the lessons and the flow
-          of the course. -->
-          </p>
-        </p>
-      </div>
-      <div></div>
-      <div>
-        <img
-          src="https://img.freepik.com/premium-psd/website-instant-showcase-mockup-isolated_359791-347.jpg?w=2000"
-          alt=""
-        />
-      </div>
-    </section>
-    <section>
-      <h2 id="experience">Experience</h2>
-    </section>
-    <section>
-      <h2 id="education">Education</h2>
-    </section>
-    <Footer />
-    <!-- <Cursor /> -->
+
+    <div class="sections">
+      <section class="about">
+        <div class="about-section">
+          <div class="about-text">
+            <h2 id="about">Hello there!</h2>
+            <p>
+              I am a highly motivated individual with a passion for writing
+              clean code and a keen attention to detail. My insatiable curiosity
+              and fast learning abilities allow me to adapt quickly to new
+              technologies and stay ahead in the ever-evolving world of
+              programming.
+            </p>
+            <p>
+              My creativity shines through in my approach to problem-solving,
+              enabling me to come up with innovative solutions to complex
+              challenges.
+            </p>
+            <p>
+              I take great pride in my ability to produce high-quality,
+              efficient, and maintainable code that not only meets but exceeds
+              expectations.
+            </p>
+            <button class="btn about-btn hoverable"
+              ><a href="#contact">GET IN TOUCH!</a></button
+            >
+          </div>
+          <img class="portrait-img" src={portrait} alt="portrait" />
+        </div>
+      </section>
+      <section class="skills">
+        <h2 id="skills" class="skills-heading">The Stack</h2>
+        <SkillCard />
+      </section>
+      <Projects client:load />
+      <section>
+        <h2 id="experience">Experience</h2>
+        <div class="accordion">
+          <span class="hoverable">
+            <Accordion data={experienceData} client:load />
+          </span>
+        </div>
+      </section>
+      <section>
+        <h2 id="education">Education</h2>
+        <div class="accordion">
+          <span class="hoverable">
+            <Accordion data={educationData} client:load />
+          </span>
+        </div>
+      </section>
+    </div>
   </main>
 </Layout>
 
 <style>
+  .iframe-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%; /* 16:9 aspect ratio (iframe's default aspect ratio) */
+  }
+
+  /* Style for the iframe itself */
+  .background-vimeo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (max-width: 767px) {
+    .landing-section {
+      height: auto; /* Remove the fixed height for smaller screens */
+    }
+
+    /* Adjust the iframe container to fit the screen height */
+    .iframe-container {
+      padding-top: 0; /* Remove the aspect ratio padding */
+    }
+
+    /* Maintain the 16:9 aspect ratio for the iframe */
+    .background-vimeo {
+      height: 56.25vw; /* 100% width to maintain 16:9 aspect ratio */
+    }
+  }
+  .portrait-img {
+    flex: 1 1 200px;
+    mix-blend-mode: add;
+    max-width: 30rem;
+  }
+  .about-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .about-text {
+    max-width: 60rem;
+  }
+
+  .accordion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   footer {
     padding: 3rem 5rem;
   }
@@ -74,9 +142,11 @@ import Footer from "../components/Footer.astro";
     width: 100%;
     height: auto;
   }
-
+  .sections {
+    margin: auto;
+    max-width: 90rem;
+  }
   .skills {
-    color: white;
     padding: 3rem 5rem;
   }
   .skills-heading {
@@ -86,14 +156,16 @@ import Footer from "../components/Footer.astro";
   .landing-section {
     margin-top: -8rem;
     overflow: hidden;
-    z-index: -1;
-    background-image: url("../assets/images/code.gif");
+    z-index: 3;
+    /* background-image: url("../assets/images/code.gif"); */
     width: 100%;
+    background-size: cover;
     position: relative;
     font-family: "Lora", serif;
     height: 100vh;
   }
   .gradient-overlay {
+    z-index: 1;
     top: 0;
     left: 0;
     position: absolute;
@@ -101,83 +173,53 @@ import Footer from "../components/Footer.astro";
     height: 100%;
     background-image: linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.5) 0%,
-      rgba(0, 0, 0, 1) 100%
+      rgba(0, 0, 0, 0.05) 0%,
+      var(--color-bg) 100%
     );
   }
+
   .main-heading {
-    color: white;
-    z-index: 2;
+    z-index: 20;
     position: absolute;
-    bottom: 0;
-    left: 1rem;
+    bottom: 6rem;
+    left: 10rem;
+    /* mix-blend-mode: color-dodge; */
   }
+
   h1 {
+    position: relative;
+    font-weight: 300;
     text-transform: uppercase;
-    font-size: 6.5vw;
+    font-size: 4rem;
     font-family: "Roboto", sans-serif;
-    line-height: 9rem;
+    line-height: 4rem;
     margin: 0;
+    width: 25ch;
   }
   h1::after {
     content: "";
-    width: 5vw;
+    width: 4rem;
     height: 5px;
     background: rgb(0, 166, 255);
     display: inline-block;
+    position: absolute;
+    bottom: 10px;
+    right: 0;
     animation: cursor-blink 1.5s steps(2) infinite;
   }
 
   .text-gradient {
-    font-size: 10vw;
-    font-family: "Monoton", cursive;
+    font-size: 4.5rem;
+    /* font-family: "Comic Sans MS"; */
     font-weight: 400;
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    animation: gradient 5s ease infinite;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
+    color: rgb(255, 255, 111);
+    text-align: center;
   }
   .text-gradient2 {
-    color: rgb(0, 166, 255);
-    font-size: 9vw;
+    mix-blend-mode: difference;
+    color: rgba(0, 102, 255, 0.797);
+    font-size: 4.5rem;
     font-family: "Source Code Pro", monospace;
-  }
-  .instructions {
-    line-height: 1.6;
-    margin: 1rem 0;
-    border: 1px solid rgba(var(--accent), 25%);
-    background-color: white;
-    padding: 1rem;
-    border-radius: 0.4rem;
-  }
-  .projects {
-    display: flex;
-    background-color: black;
-    color: white;
-    padding: 1rem 5rem;
-  }
-  .projects img {
-    max-width: 40rem;
-    margin: 3rem;
-  }
-  .instructions code {
-    font-size: 0.875em;
-    font-weight: bold;
-    background: rgba(var(--accent), 12%);
-    color: rgb(var(--accent));
-    border-radius: 4px;
-    padding: 0.3em 0.45em;
-  }
-  .instructions strong {
-    color: rgb(var(--accent));
-  }
-  .link-card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 1rem;
-    padding: 0;
   }
   @keyframes gradient {
     0% {

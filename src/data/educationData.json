@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Software Development | Level 6",
+    "paragraph": "The NZ Diploma in Software Development is split into eight-course areas: Client-side development, Server-side development, Full-stack development and Agile Development and DevOps. The first 10 months is learning the basics and foundations required to succeed as a software developer. The second 10 months will aim at the specific areas like Application Security, Mobile Application Development, Introduction into Machine Learning and Capstone (Enterprise) Project.",
+    "url": "https://www.nzse.ac.nz/information-technology/diploma-in-it-software-development-level-6",
+    "location": "Auckland, New Zealand",
+    "technologies": [
+      "Project Management",
+      "Agile",
+      "C#",
+      "Mobile App Development",
+      "MySQL",
+      "IT Ethics"
+    ],
+    "period": ["2020", "2022"],
+    "logo": "https://assets.website-files.com/5efab9fe48aba15fe6f74a19/5efe650a8ca3acea9a5c3dbc_NZSE-NZSEG-Image1.jpg"
+  },
+  {
+    "title": "IT Technical Support | Level 5",
+    "paragraph": "Installing IT hardware and systems software, building operational knowledge of networking, database administration and IT service management. Tackling troubleshooting, problem solving and interface design and learning how to create basic computer applications. Introduction to understanding of professional, legal and ethical principles and practices in New Zealand’s IT sector.",
+    "url": "https://aspire2international.ac.nz/programmes/information-technology/nz-diploma-it-support/",
+    "location": "Auckland, New Zealand",
+    "technologies": ["Hardware", "Networking", "Web Development", "SQL"],
+    "period": ["2019", "2020"],
+    "logo": "https://static.wixstatic.com/media/5752c5_01c91d016abf4b0686b3bbd38db3be41~mv2.png"
+  }
+]

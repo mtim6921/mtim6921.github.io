@@ -1,0 +1,37 @@
+---
+import AstroIcon from "../assets/icons/astro.svg";
+import Dotnet from "../assets/icons/dotnet.svg";
+import Mongodb from "../assets/icons/mongodb.svg";
+import Mysql from "../assets/icons/mysql.svg";
+import Nextjs from "../assets/icons/next-js.svg";
+import Nodejs from "../assets/icons/nodejs.svg";
+import React from "../assets/icons/react.svg";
+
+export interface Props {
+  name:
+    | "astro"
+    | "dotnet"
+    | "mongodb"
+    | "mysql"
+    | "nextjs"
+    | "nodejs"
+    | "react";
+}
+
+const { name } = Astro.props;
+
+const iconMap: { [K in Exclude<Props["name"], undefined | null>]: string } = {
+  astro: AstroIcon,
+  dotnet: Dotnet,
+  mongodb: Mongodb,
+  mysql: Mysql,
+  nextjs: Nextjs,
+  nodejs: Nodejs,
+  react: React,
+};
+
+const IconComponent = iconMap[name];
+
+// Now, you can render the IconComponent dynamically:
+return <IconComponent />;
+---

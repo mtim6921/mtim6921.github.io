@@ -8,7 +8,7 @@ import {
 } from "react-icons/si";
 ---
 
-<footer>
+<footer id="contact">
   <h2>Let's work together!</h2>
   <ul>
     <li>
@@ -40,4 +40,48 @@ import {
       >
     </li>
   </ul>
+  <ul class="nav-links">
+    <li><a class="hoverable" href="#about">About</a></li>
+    <li><a class="hoverable" href="#skills">Stack</a></li>
+    <li><a class="hoverable" href="#projects">projects</a></li>
+    <li><a class="hoverable" href="#experience">experience</a></li>
+    <li><a class="hoverable" href="#education">education</a></li>
+  </ul>
 </footer>
+<style>
+  a {
+    display: inline-block;
+  }
+  h2 {
+    text-align: start !important;
+  }
+  ul {
+    margin-top: 2rem;
+    padding: 0;
+  }
+  li {
+    display: inline;
+  }
+
+  li:not(:last-child) {
+    margin-right: 2rem;
+  }
+  footer {
+    width: 80%;
+    margin: auto;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    margin-bottom: 2rem;
+    padding: 2rem 10rem;
+  }
+  .nav-links {
+    display: flex;
+    text-transform: capitalize;
+  }
+  .nav-links li a {
+    opacity: 0.5;
+  }
+  .nav-links li:not(:last-child) {
+    margin-right: 2rem;
+  }
+</style>

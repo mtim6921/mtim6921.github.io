@@ -1,0 +1,65 @@
+.projects {
+  color: var(--color-text);
+  padding: 1rem 5rem;
+}
+.projectContainer {
+  position: relative;
+  display: flex;
+}
+.projectContainer img {
+  position: relative;
+  max-width: 60rem;
+  margin: 3rem;
+  box-shadow: 60px -16px var(--color-bg-transparent);
+  transition: 0.3s ease;
+}
+
+.ulLinks {
+  text-align: center;
+}
+.ulLinks li {
+  display: inline-block;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.ulLinks li:hover {
+  color: var(--color-accent);
+}
+.ulLinks li:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.projectParagraph {
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.evenProjectImage {
+  order: 1;
+}
+.oddProjectImage {
+  order: 0;
+}
+
+.oddProjectParagraph {
+  order: 1;
+  transform: translateX(+10%);
+}
+.evenProjectParagraph {
+  order: 0;
+  transform: translateX(-10%);
+}
+
+.projectImage:hover img {
+  filter: invert(2);
+  cursor: pointer;
+}
+
+.projectImage:hover ~ .projectParagraph {
+  transform: translateX(0);
+  opacity: 1;
+}
+.active {
+  color: var(--color-accent);
+  transition: 0.2s ease;
+}

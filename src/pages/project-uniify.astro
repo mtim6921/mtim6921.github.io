@@ -1,0 +1,132 @@
+---
+import Layout from "../layouts/Layout.astro";
+import logo from "../assets/images/uniify/logo.svg";
+import img1 from "../assets/images/uniify/create.png";
+import img2 from "../assets/images/uniify/all.png";
+import img3 from "../assets/images/uniify/profile.png";
+import img4 from "../assets/images/uniify/drag.png";
+import img5 from "../assets/images/uniify/lessons.png";
+import img6 from "../assets/images/uniify/stripe.png";
+---
+
+<Layout title="uniify.ai | Project Page" navigation={false}>
+  <main>
+    <h2>UNIIFY.AI</h2>
+    <h4 class="subheading">A global online learning platform.</h4>
+    <div class="landing-section">
+      <div class="info">
+        <h4>the stack</h4>
+        <ul>
+          <li>
+            <span class={"technology"}>React.js</span>
+          </li>
+          <li>
+            <span class={"technology"}>Node.js</span>
+          </li>
+          <li>
+            <span class={"technology"}>Mongo.DB</span>
+          </li>
+          <li>
+            <span class={"technology"}>Typescript</span>
+          </li>
+          <li>
+            <span class={"technology"}>Socket.io</span>
+          </li>
+          <li>
+            <span class={"technology"}>Stripe</span>
+          </li>
+        </ul>
+
+        <h4>about project</h4>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio
+          tenetur aliquam excepturi vero voluptas officia, molestias aut
+          blanditiis magnam perferendis atque dolores! At ea, aliquam,
+          exercitationem accusamus ad saepe pariatur aperiam sit blanditiis, ut
+          veniam rerum consectetur? Soluta optio doloribus praesentium ipsa vel
+          totam adipisci blanditiis minima rerum, molestias odit illum, nihil
+          est itaque neque laborum labore? Aspernatur, possimus debitis
+          repellendus exercitationem neque aut corrupti.
+        </p>
+        <button class="btn hoverable">
+          <a class="external" href="https://uniify.ai/" target="_blank"
+            >View live</a
+          >
+        </button>
+      </div>
+
+      <img class="logo" src={logo} alt="login" />
+    </div>
+    <h2>screenshots</h2>
+    <div class="gallery">
+      <figure class="gallery__item gallery__item--1">
+        <img src={img1} class="gallery__img" alt="Image 1" />
+      </figure>
+      <figure class="gallery__item gallery__item--2">
+        <img src={img2} class="gallery__img" alt="Image 2" />
+      </figure>
+      <figure class="gallery__item gallery__item--3">
+        <img src={img3} class="gallery__img" alt="Image 3" />
+      </figure>
+      <figure class="gallery__item gallery__item--4">
+        <img src={img4} class="gallery__img" alt="Image 4" />
+      </figure>
+      <figure class="gallery__item gallery__item--5">
+        <img src={img5} class="gallery__img" alt="Image 5" />
+      </figure>
+      <figure class="gallery__item gallery__item--6">
+        <img src={img6} class="gallery__img" alt="Image 6" />
+      </figure>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .gallery {
+    margin: 2rem 10rem;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .gallery__img {
+    max-width: 40rem;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .external {
+    color: var(--color-primary);
+    font-size: 1.4rem;
+  }
+  ul {
+    padding: 0;
+  }
+  li {
+    display: inline-block;
+  }
+  li:not(:last-child) {
+    margin-right: 1rem;
+  }
+  .landing-section {
+    flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
+    padding: 10rem;
+    display: flex;
+  }
+
+  .logo {
+    margin-left: 3rem;
+    max-width: 40rem;
+    object-fit: contain;
+  }
+  .subheading {
+    text-align: center;
+  }
+  .info {
+    min-width: 40rem;
+    max-width: 60rem;
+  }
+
+  @media screen and (max-width: 800px) {
+  }
+</style>

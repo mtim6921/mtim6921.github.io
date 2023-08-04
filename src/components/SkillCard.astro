@@ -1,19 +1,11 @@
 ---
-import {
-  SiAstro,
-  SiReact,
-  SiCsharp,
-  SiNextdotjs,
-  SiNodedotjs,
-  SiExpress,
-  SiMysql,
-  SiMongodb,
-} from "react-icons/si";
+import { Icon } from "astro-icon";
 ---
 
 <div class="skill-cards">
   <div>
-    <h3>Programming</h3>
+    <br />
+    <!-- <h3>Programming</h3> -->
     <div class="skill-section">
       <div class="card-grid">
         <p class="grid-p">
@@ -22,19 +14,19 @@ import {
         </p>
         <ul class="grid-ul1">
           <h4>Frontend</h4>
-          <li><SiReact /> React.js</li>
-          <li><SiAstro /> Astro</li>
+          <li><Icon class="icon" name="react" /> React.js</li>
+          <li><Icon class="icon" name="astro" /> Astro</li>
         </ul>
         <ul class="grid-ul2">
           <h4>Backend</h4>
-          <li><SiNodedotjs /> Node.js <SiExpress /></li>
-          <li><SiNextdotjs /> Next.js</li>
-          <li><SiCsharp /> .NET</li>
+          <li><Icon class="icon" name="nodejs" /> Node.js</li>
+          <li><Icon class="icon" name="next-js" /> NEXT.js</li>
+          <li><Icon class="icon" name="dotnet" /> C#</li>
         </ul>
         <ul class="grid-ul3">
           <h4>Database</h4>
-          <li><SiMysql /> MySQL</li>
-          <li><SiMongodb /> MongoDB</li>
+          <li><Icon class="icon" name="mysql" /> MySQL</li>
+          <li><Icon class="icon" name="mongodb" /> MongoDB</li>
         </ul>
       </div>
       <div>
@@ -51,7 +43,7 @@ import {
       </div>
     </div>
   </div>
-  <div>
+  <!-- <div>
     <h3 class="float-right">Videography</h3>
     <div class="skill-section">
       <div>
@@ -93,9 +85,12 @@ import {
         </ul>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <style>
+    .icon {
+      max-width: 2rem;
+    }
     .skill-section {
       display: flex;
     }
@@ -139,7 +134,7 @@ import {
       flex-grow: 1;
       max-width: 50rem;
       padding: 3rem;
-      border: 2px solid rgba(215, 215, 215, 0.135);
+      border: 2px solid var(--color-border);
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: auto;
@@ -147,12 +142,17 @@ import {
         "main main main"
         "ul1 ul2 ul3";
       margin-bottom: 3rem;
+      box-shadow: -1rem 1rem var(--color-border);
     }
     .card-grid2 {
+      box-shadow: 1rem 1rem var(--color-border);
       margin-left: auto;
     }
     .card-grid p {
       padding: 1rem;
+    }
+    h3 {
+      margin-bottom: 1rem;
     }
   </style>
 </div>
