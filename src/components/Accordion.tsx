@@ -1,7 +1,8 @@
 import { useState } from "react";
 import css from "./Accordion.module.css";
 import classNames from "classnames";
-import { HiLocationMarker, HiLink } from "react-icons/hi";
+import LocationIcon from "../icons/location.svg";
+import LinkIcon from "../icons/link.svg";
 interface Data {
   title: string;
   paragraph: string;
@@ -64,11 +65,11 @@ export function AccordionItem({ data, opened, i }: AccordionProps) {
         <div className={css.accordionItem__content}>
           <div className={css.details}>
             <span>
-              <HiLocationMarker />
+              <img src={LocationIcon} className={css.icon} />
               {location}
             </span>
             <span>
-              <HiLink />
+              <img src={LinkIcon} className={css.icon} />
               <a className={css.link} target="_blank" href={url}>
                 Visit Website
               </a>

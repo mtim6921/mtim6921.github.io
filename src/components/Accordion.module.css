@@ -102,7 +102,13 @@
 .details {
   margin-bottom: 1rem;
 }
-
+details span {
+  display: inline;
+}
+.icon {
+  max-width: 2rem;
+  margin-right: 0.5rem;
+}
 .details span:not(:last-child) {
   margin-right: 2rem;
 }

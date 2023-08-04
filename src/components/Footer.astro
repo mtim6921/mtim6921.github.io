@@ -1,11 +1,5 @@
 ---
-import {
-  SiInstagram,
-  SiMessenger,
-  SiGithub,
-  SiGmail,
-  SiLinkedin,
-} from "react-icons/si";
+import { Icon } from "astro-icon";
 ---
 
 <footer id="contact">
@@ -13,12 +7,12 @@ import {
   <ul>
     <li>
       <a class="hoverable" href="mailto:mtim6921@gmail.com"
-        ><SiGmail /> mtim6921@gmail.com</a
+        ><Icon name="gmail" class="icon" /> mtim6921@gmail.com</a
       >
     </li>
     <li>
       <a class="hoverable" target="_blank" href="https://m.me/timur.muedinov.9"
-        ><SiMessenger /> Messenger</a
+        ><Icon name="facebookmessenger" class="icon" /> Messenger</a
       >
     </li>
     <li>
@@ -26,17 +20,25 @@ import {
         class="hoverable"
         target="_blank"
         href="https://www.linkedin.com/in/timur-muedinov-4a8990152/"
-        ><SiLinkedin /> LinkedIn</a
+        ><Icon name="linkedin" class="icon" /> LinkedIn</a
       >
     </li>
     <li>
       <a class="hoverable" target="_blank" href="https://m.me/timur.muedinov.9"
-        ><SiInstagram /> Instagram</a
+        ><Icon name="instagram" class="icon" /> Instagram</a
       >
     </li>
     <li>
       <a class="hoverable" target="_blank" href="https://m.me/timur.muedinov.9"
-        ><SiGithub /> GitHub</a
+        ><Icon name="github" class="icon" />GitHub</a
+      >
+    </li>
+    <li>
+      <a
+        class="hoverable"
+        target="_blank"
+        href="https://www.youtube.com/channel/UConQOmFJoqkLsz7pBqtapIw"
+        ><Icon name="youtube" class="icon" />YouTube</a
       >
     </li>
   </ul>
@@ -49,8 +51,13 @@ import {
   </ul>
 </footer>
 <style>
+  .icon {
+    max-width: 2rem;
+    display: inline;
+    margin-right: 0.5rem;
+  }
   a {
-    display: inline-block;
+    display: inline;
   }
   h2 {
     text-align: start !important;
