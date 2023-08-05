@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import css from "./Projects.module.css";
 import { CSSTransition } from "react-transition-group";
 import classNames from "classnames";
+import uniifyImg from "../assets/images/site.png";
 enum Category {
   Programming = "programming",
   Video = "video",
@@ -18,7 +19,7 @@ export default function Projects() {
       description:
         "A global full-stack web platform that provides an engine to create fully customizable courses, automate the lessons and the flow of the course.",
       category: Category.Programming,
-      image: "./src/assets/images/site.png",
+      image: uniifyImg,
       url: "/project-uniify/",
     },
     // {

@@ -30,7 +30,7 @@
 }
 
 .projectParagraph {
-  opacity: 0;
+  /* opacity: 0; */
   transition: var(--transition);
 }
 
@@ -49,16 +49,18 @@
   order: 0;
   transform: translateX(-10%);
 }
-
+.projectImage img {
+  filter: brightness(0.8);
+}
 .projectImage:hover img {
-  filter: invert(2);
+  filter: brightness(1.2);
   cursor: pointer;
 }
 
-.projectImage:hover ~ .projectParagraph {
+/* .projectImage:hover ~ .projectParagraph {
   transform: translateX(0);
   opacity: 1;
-}
+} */
 .active {
   color: var(--color-accent);
   transition: 0.2s ease;
