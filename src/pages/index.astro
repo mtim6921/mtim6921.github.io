@@ -14,10 +14,9 @@ import portrait from "../assets/images/bodyshot.png";
       <div class="iframe-container">
         <iframe
           frameborder="0"
-          src="https://player.vimeo.com/video/851520076?h=f2e82d1eae&autoplay=1&loop=1&title=0&byline=0&portrait=0&background=1"
+          src="https://player.vimeo.com/video/851520076?autoplay=1&loop=1&title=0&background=1"
           class="background-vimeo"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowfullscreen></iframe>
+          allow="autoplay;"></iframe>
       </div>
       <div class="main-heading">
         <h1>
@@ -87,32 +86,18 @@ import portrait from "../assets/images/bodyshot.png";
   .iframe-container {
     position: relative;
     overflow: hidden;
-    padding-top: 56.25%; /* 16:9 aspect ratio (iframe's default aspect ratio) */
+    width: 100vw;
+    padding-top: 56.25%;
   }
 
   /* Style for the iframe itself */
   .background-vimeo {
+    overflow: hidden;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-  }
-
-  @media (max-width: 767px) {
-    .landing-section {
-      height: auto; /* Remove the fixed height for smaller screens */
-    }
-
-    /* Adjust the iframe container to fit the screen height */
-    .iframe-container {
-      padding-top: 0; /* Remove the aspect ratio padding */
-    }
-
-    /* Maintain the 16:9 aspect ratio for the iframe */
-    .background-vimeo {
-      height: 56.25vw; /* 100% width to maintain 16:9 aspect ratio */
-    }
   }
   .portrait-img {
     flex: 1 1 200px;
@@ -157,8 +142,7 @@ import portrait from "../assets/images/bodyshot.png";
     margin-top: -8rem;
     overflow: hidden;
     z-index: 3;
-    /* background-image: url("../assets/images/code.gif"); */
-    width: 100%;
+    width: 100vw;
     background-size: cover;
     position: relative;
     font-family: "Lora", serif;
@@ -209,7 +193,6 @@ import portrait from "../assets/images/bodyshot.png";
   }
 
   .text-gradient {
-    font-size: 4.5rem;
     /* font-family: "Comic Sans MS"; */
     font-weight: 400;
     color: rgb(255, 255, 111);
@@ -218,7 +201,6 @@ import portrait from "../assets/images/bodyshot.png";
   .text-gradient2 {
     mix-blend-mode: difference;
     color: rgba(0, 102, 255, 0.797);
-    font-size: 4.5rem;
     font-family: "Source Code Pro", monospace;
   }
   @keyframes gradient {
@@ -235,6 +217,36 @@ import portrait from "../assets/images/bodyshot.png";
   @keyframes cursor-blink {
     0% {
       opacity: 0;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .iframe-container {
+      padding-top: 0;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      overflow: hidden;
+      width: 1920px;
+      height: 100%;
+    }
+
+    /* Style for the iframe itself */
+    .background-vimeo {
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .main-heading {
+      left: 1rem;
+      bottom: 1rem;
+    }
+    h1 {
+      font-size: 2rem;
+      overflow: hidden;
     }
   }
 </style>

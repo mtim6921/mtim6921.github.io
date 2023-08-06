@@ -187,6 +187,20 @@ const { title, navigation } = Astro.props;
     color: black;
     cursor: pointer;
   }
+
+  @media screen and (max-width: 768px) {
+    .cursor {
+      pointer-events: all;
+    }
+    .cursor__ball {
+      display: none;
+      opacity: 0;
+    }
+
+    body {
+      width: 100%;
+    }
+  }
 </style>
 
 <script>
