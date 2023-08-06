@@ -65,3 +65,12 @@
   color: var(--color-accent);
   transition: 0.2s ease;
 }
+@media screen and (max-width: 768px) {
+  .projects {
+    padding: 1rem;
+  }
+  .projectContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+}
