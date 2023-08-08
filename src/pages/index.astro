@@ -221,6 +221,16 @@ import portrait from "../assets/images/bodyshot.png";
     }
   }
   @media screen and (max-width: 768px) {
+    main {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .sections {
+      width: 100vw;
+      max-width: 100%;
+      margin: auto;
+    }
     .skills {
       padding: 1rem;
     }
@@ -230,14 +240,13 @@ import portrait from "../assets/images/bodyshot.png";
       top: 0;
       left: 50%;
       transform: translateX(-50%);
-      overflow: hidden;
+
       width: 1920px;
       height: 100%;
     }
 
     /* Style for the iframe itself */
     .background-vimeo {
-      overflow: hidden;
       position: absolute;
       top: 0;
       left: 0;
@@ -250,7 +259,6 @@ import portrait from "../assets/images/bodyshot.png";
     }
     h1 {
       font-size: 2rem;
-      overflow: hidden;
     }
   }
 </style>

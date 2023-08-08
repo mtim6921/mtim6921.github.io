@@ -93,7 +93,7 @@
 }
 .wrapper {
   margin: auto;
-  min-width: 40rem;
+  min-width: 30rem;
   margin: 2rem 0;
 }
 .link {
@@ -130,6 +130,17 @@ details span {
 }
 @media screen and (max-width: 768px) {
   .wrapper {
+    width: 100%;
     max-width: 30rem;
+    padding: 0;
+    margin: 0;
+  }
+  .paragraphContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+  .paragraphContainer img {
+    max-width: 12rem;
   }
 }

@@ -189,19 +189,24 @@ const { title, navigation } = Astro.props;
   }
 
   @media screen and (max-width: 768px) {
+    .technology {
+      margin: 0;
+      margin-top: 1rem;
+      display: inline-block;
+    }
     .cursor {
       pointer-events: all;
     }
     html {
-      font-size: 0.8em;
+      font-size: 0.7em;
+      width: 100vw;
+    }
+    body {
+      width: 100%;
     }
     .cursor__ball {
       display: none;
       opacity: 0;
-    }
-
-    body {
-      width: 100%;
     }
   }
 </style>

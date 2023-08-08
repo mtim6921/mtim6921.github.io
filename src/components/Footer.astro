@@ -92,4 +92,16 @@ import { Icon } from "astro-icon";
   .nav-links li:not(:last-child) {
     margin-right: 2rem;
   }
+
+  @media screen and (max-width: 768px) {
+    li {
+      display: block;
+    }
+    footer {
+      padding: 1rem;
+    }
+    .nav-links {
+      flex-direction: column;
+    }
+  }
 </style>
