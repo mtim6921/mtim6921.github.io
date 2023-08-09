@@ -39,25 +39,38 @@ import img6 from "../assets/images/uniify/stripe.png";
 
         <h4>about project</h4>
         <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio
-          tenetur aliquam excepturi vero voluptas officia, molestias aut
-          blanditiis magnam perferendis atque dolores! At ea, aliquam,
-          exercitationem accusamus ad saepe pariatur aperiam sit blanditiis, ut
-          veniam rerum consectetur? Soluta optio doloribus praesentium ipsa vel
-          totam adipisci blanditiis minima rerum, molestias odit illum, nihil
-          est itaque neque laborum labore? Aspernatur, possimus debitis
-          repellendus exercitationem neque aut corrupti.
+          Through this project, I have demonstrated a high level of
+          professionalism and proficiency in programming, ensuring a clean and
+          organized codebase. The application of my UI/UX skills has resulted in
+          a seamless and visually appealing user experience, showcasing my
+          ability to create intuitive interfaces that prioritize user
+          satisfaction.
         </p>
-        <button class="btn hoverable">
-          <a class="external" href="https://uniify.ai/" target="_blank"
-            >View live</a
-          >
-        </button>
+        <p>
+          This substantial undertaking has not only expanded my technical
+          capabilities but also fostered a deep appreciation for precision,
+          attention to detail, and delivering exceptional outcomes. The lessons
+          learned and skills acquired from this project have fortified my
+          professional growth and equipped me with invaluable expertise that I
+          am eager to apply in future endeavors.
+        </p>
+        <p>
+          I am immensely proud of this project, as it stands as a testament to
+          my commitment to excellence and my ability to tackle complex
+          challenges with a disciplined and systematic approach.
+        </p>
+        <div class="btn-container">
+          <button class="btn hoverable">
+            <a class="external" href="https://uniify.ai/" target="_blank"
+              >View live</a
+            >
+          </button>
+        </div>
       </div>
 
       <img class="logo" src={logo} alt="login" />
     </div>
-    <h2>screenshots</h2>
+    <h3>screenshots</h3>
     <div class="gallery">
       <figure class="gallery__item gallery__item--1">
         <img src={img1} class="gallery__img" alt="Image 1" />
@@ -123,17 +136,33 @@ import img6 from "../assets/images/uniify/stripe.png";
     text-align: center;
   }
   .info {
-    min-width: 30rem;
-    max-width: 40rem;
+    min-width: 25rem;
+    max-width: 30rem;
   }
 
   @media screen and (max-width: 800px) {
+    h2,
+    h3,
+    h4 {
+      text-align: center;
+    }
     .gallery {
       margin: 1rem;
     }
     .landing-section {
-      width: 100%;
-      padding: 10%;
+      align-items: center;
+      flex-direction: column;
+
+      padding: 1rem;
+    }
+    .logo {
+      max-width: 25rem;
+    }
+    .btn-container {
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 </style>
