@@ -74,6 +74,7 @@ import { Icon } from "astro-icon";
     margin-right: 2rem;
   }
   footer {
+    position: relative;
     width: 80%;
     margin: auto;
     margin-top: 5rem;
@@ -92,6 +93,28 @@ import { Icon } from "astro-icon";
   .nav-links li:not(:last-child) {
     margin-right: 2rem;
   }
+  footer::before {
+    z-index: -1;
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 2rem;
+    background-size: cover;
+    width: 20rem;
+    height: 100%;
+    background-image: url("../assets//images/dnaSpin.gif");
+  }
+  footer::after {
+    z-index: 0;
+    position: absolute;
+    content: "";
+    bottom: 1rem;
+    right: 2rem;
+    background-size: cover;
+    width: 20rem;
+    height: 1rem;
+    background-color: black;
+  }
 
   @media screen and (max-width: 768px) {
     li {
@@ -99,6 +122,13 @@ import { Icon } from "astro-icon";
     }
     footer {
       padding: 1rem;
+    }
+    footer::before {
+      width: 30rem;
+    }
+    footer::after {
+      bottom: 1.8rem;
+      height: 2rem;
     }
     .nav-links {
       flex-direction: column;
