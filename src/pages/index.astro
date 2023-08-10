@@ -54,7 +54,9 @@ import portrait from "../assets/images/bodyshot.png";
               ><a href="#contact">GET IN TOUCH!</a></button
             >
           </div>
-          <img class="portrait-img" src={portrait} alt="portrait" />
+          <div class="before-portrait">
+            <img class="portrait-img" src={portrait} alt="portrait" />
+          </div>
         </div>
       </section>
       <section class="skills">
@@ -100,16 +102,46 @@ import portrait from "../assets/images/bodyshot.png";
     height: 100%;
   }
   .portrait-img {
+    position: relative;
+    transform: translateY(5px);
     flex: 1 1 200px;
-    mix-blend-mode: add;
-    max-width: 30rem;
+    max-width: 100%;
+    overflow: hidden;
   }
+  .before-portrait {
+    border: 1px solid var(--color-border);
+    position: relative;
+    max-width: 30rem;
+    overflow: hidden;
+  }
+  .before-portrait::before {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    top: -30%;
+    left: -30%;
+    background-size: contain;
+    background-image: url("../assets/images/shapes.png");
+    animation: infiniteRotate 20s linear infinite; /* Animation applied */
+  }
+
+  @keyframes infiniteRotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
   .about-section {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
   }
+
   .about-text {
     padding: 1rem;
     max-width: 40rem;
