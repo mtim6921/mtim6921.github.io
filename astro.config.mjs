@@ -7,5 +7,8 @@ export default defineConfig({
   integrations: [react()],
   site: 'https://mtim6921.github.io',
   // base: '/portfolio',
+  experimental: {
+    viewTransitions: true
+  }
 });
 

@@ -1,6 +1,7 @@
 ---
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
+import { ViewTransitions } from "astro:transitions";
 export interface Props {
   title: string;
   navigation: boolean;
@@ -17,8 +18,9 @@ const { title, navigation } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
-  <body>
+  <body transition:persist>
     <div class="cursor">
       <div class="cursor__ball cursor__ball--big">
         <svg height="30" width="30">
@@ -43,203 +45,214 @@ const { title, navigation } = Astro.props;
     <slot />
     <Footer />
     <span class="copyright">Timur Muedinov © 2023</span>
+    <style is:global>
+      @import url("https://fonts.googleapis.com/css2?family=Monoton&family=Roboto&family=Source+Code+Pro:wght@200&display=swap");
+      :root {
+        --text-primary: white;
+        --accent: 124, 58, 237;
+        --accent-gradient: linear-gradient(
+          45deg,
+          rgb(var(--accent)),
+          #da62c4 30%,
+          white 60%
+        );
+      }
+      .technology {
+        border-radius: 2rem;
+        background-color: var(--color-accent-transparent);
+        padding: 0.5rem 1rem;
+      }
+      .technology:not(:last-child) {
+        margin-right: 2rem;
+      }
+      .copyright {
+        display: block;
+        text-align: center;
+        margin-bottom: 5rem;
+      }
+      a {
+        color: inherit;
+      }
+      p,
+      li,
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: var(--color-text);
+      }
+      p,
+      li {
+        font-size: 1.6rem;
+        list-style: none;
+      }
+      li {
+        line-height: 3rem;
+      }
+      h2 {
+        margin-top: 3rem;
+        font-size: 5rem;
+        text-align: center;
+      }
+      h3 {
+        font-size: 3rem;
+      }
+      h4 {
+        font-size: 1.6rem;
+        color: var(--color-text-secondary);
+      }
+      html {
+        scroll-behavior: smooth;
+        box-sizing: border-box;
+        font-family: system-ui, sans-serif;
+      }
+      body {
+        /* cursor: none; */
+        background-color: var(--color-bg);
+        box-sizing: border-box;
+        margin: 0;
+        color: var(--text-primary);
+      }
+      code {
+        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+      }
+      svg {
+        color: var(--color-accent) !important;
+      }
+      html {
+        overflow-x: hidden;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        text-transform: uppercase;
+        font-family: "Roboto", sans-serif;
+        margin-bottom: 0;
+      }
+      a {
+        position: relative;
+        z-index: 300;
+        color: inherit;
+        text-decoration: none;
+        /* color: inherit; */
+      }
+      /* Cursor */
+      .cursor {
+        pointer-events: none;
+      }
+      .cursor__ball {
+        position: fixed;
+        top: 0;
+        left: 0;
+        mix-blend-mode: difference;
+        z-index: 1000;
+      }
+      .cursor__ball circle {
+        fill: var(--color-text);
+      }
+      /*  */
+      .nav-back {
+        text-transform: uppercase;
+        font-size: 5rem;
+        padding: 5rem;
+      }
+      .nav-back:hover {
+        cursor: pointer;
+      }
+      .hoverable {
+        cursor: pointer;
+      }
+      .fade-appear {
+        opacity: 0.01;
+      }
+
+      .fade-appear.fade-appear-active {
+        opacity: 1;
+        transition: opacity 500ms ease-in;
+      }
+
+      .btn {
+        border: 1px solid white;
+        background: transparent;
+        color: white;
+        outline: none;
+        margin-top: 2rem;
+        padding: 0.5rem 1rem;
+        transition: 0.2s ease;
+      }
+      .btn:hover {
+        background-color: white;
+        color: black;
+        cursor: pointer;
+      }
+
+      @media screen and (max-width: 768px) {
+        .nav-back {
+          padding: 2rem;
+        }
+        .technology {
+          margin: 0;
+          margin-top: 1rem;
+          display: inline-block;
+        }
+        .cursor {
+          pointer-events: all;
+        }
+        html {
+          font-size: 0.7em;
+          width: 100vw;
+        }
+        body {
+          width: 100%;
+        }
+        .cursor__ball {
+          display: none;
+          opacity: 0;
+        }
+      }
+    </style>
+
+    <script>
+      import { gsap } from "gsap";
+      function cursorAnimation() {
+        const $bigBall = document.querySelector(".cursor__ball--big");
+        const $smallBall = document.querySelector(".cursor__ball--small");
+        const $hoverables = document.querySelectorAll(".hoverable");
+        // Listeners
+        window.addEventListener("mousemove", onMouseMove);
+
+        for (let i = 0; i < $hoverables.length; i++) {
+          $hoverables[i].addEventListener("mouseenter", onMouseHover);
+          $hoverables[i].addEventListener("mouseleave", onMouseHoverOut);
+        }
+
+        // Move the cursor
+        function onMouseMove(e: MouseEvent) {
+          gsap.to($bigBall, {
+            duration: 0.2,
+            x: e.clientX - 15,
+            y: e.clientY - 15,
+          });
+          gsap.to($smallBall, {
+            duration: 0.1,
+            x: e.clientX - 5,
+            y: e.clientY - 7,
+          });
+        }
+
+        // Hover an element
+        function onMouseHover() {
+          gsap.to($bigBall, { duration: 0.2, scale: 4 });
+        }
+        function onMouseHoverOut() {
+          gsap.to($bigBall, { duration: 0.2, scale: 1 });
+        }
+      }
+      cursorAnimation();
+
+      document.addEventListener("astro:beforeload", cursorAnimation);
+    </script>
   </body>
 </html>
-<style is:global>
-  @import url("https://fonts.googleapis.com/css2?family=Monoton&family=Roboto&family=Source+Code+Pro:wght@200&display=swap");
-  :root {
-    --text-primary: white;
-    --accent: 124, 58, 237;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      #da62c4 30%,
-      white 60%
-    );
-  }
-  .technology {
-    border-radius: 2rem;
-    background-color: var(--color-accent-transparent);
-    padding: 0.5rem 1rem;
-  }
-  .technology:not(:last-child) {
-    margin-right: 2rem;
-  }
-  .copyright {
-    display: block;
-    text-align: center;
-    margin-bottom: 5rem;
-  }
-  a {
-    color: inherit;
-  }
-  p,
-  li,
-  h1,
-  h2,
-  h3,
-  h4 {
-    color: var(--color-text);
-  }
-  p,
-  li {
-    font-size: 1.6rem;
-    list-style: none;
-  }
-  li {
-    line-height: 3rem;
-  }
-  h2 {
-    margin-top: 3rem;
-    font-size: 5rem;
-    text-align: center;
-  }
-  h3 {
-    font-size: 3rem;
-  }
-  h4 {
-    font-size: 1.6rem;
-    color: var(--color-text-secondary);
-  }
-  html {
-    scroll-behavior: smooth;
-    box-sizing: border-box;
-    font-family: system-ui, sans-serif;
-  }
-  body {
-    /* cursor: none; */
-    background-color: var(--color-bg);
-    box-sizing: border-box;
-    margin: 0;
-    color: var(--text-primary);
-  }
-  code {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-  }
-  svg {
-    color: var(--color-accent) !important;
-  }
-  html {
-    overflow-x: hidden;
-  }
-  h1,
-  h2,
-  h3,
-  h4 {
-    text-transform: uppercase;
-    font-family: "Roboto", sans-serif;
-    margin-bottom: 0;
-  }
-  a {
-    position: relative;
-    z-index: 300;
-    color: inherit;
-    text-decoration: none;
-    /* color: inherit; */
-  }
-  /* Cursor */
-  .cursor {
-    pointer-events: none;
-  }
-  .cursor__ball {
-    position: fixed;
-    top: 0;
-    left: 0;
-    mix-blend-mode: difference;
-    z-index: 1000;
-  }
-  .cursor__ball circle {
-    fill: var(--color-text);
-  }
-  /*  */
-  .nav-back {
-    text-transform: uppercase;
-    font-size: 5rem;
-    padding: 5rem;
-  }
-  .nav-back:hover {
-    cursor: pointer;
-  }
-  .hoverable {
-    cursor: pointer;
-  }
-  .fade-appear {
-    opacity: 0.01;
-  }
-
-  .fade-appear.fade-appear-active {
-    opacity: 1;
-    transition: opacity 500ms ease-in;
-  }
-
-  .btn {
-    border: 1px solid white;
-    background: transparent;
-    color: white;
-    outline: none;
-    margin-top: 2rem;
-    padding: 0.5rem 1rem;
-    transition: 0.2s ease;
-  }
-  .btn:hover {
-    background-color: white;
-    color: black;
-    cursor: pointer;
-  }
-
-  @media screen and (max-width: 768px) {
-    .nav-back {
-      padding: 2rem;
-    }
-    .technology {
-      margin: 0;
-      margin-top: 1rem;
-      display: inline-block;
-    }
-    .cursor {
-      pointer-events: all;
-    }
-    html {
-      font-size: 0.7em;
-      width: 100vw;
-    }
-    body {
-      width: 100%;
-    }
-    .cursor__ball {
-      display: none;
-      opacity: 0;
-    }
-  }
-</style>
-
-<script>
-  import { gsap } from "gsap";
-
-  const $bigBall = document.querySelector(".cursor__ball--big");
-  const $smallBall = document.querySelector(".cursor__ball--small");
-  const $hoverables = document.querySelectorAll(".hoverable");
-
-  // Listeners
-  window.addEventListener("mousemove", onMouseMove);
-
-  for (let i = 0; i < $hoverables.length; i++) {
-    $hoverables[i].addEventListener("mouseenter", onMouseHover);
-    $hoverables[i].addEventListener("mouseleave", onMouseHoverOut);
-  }
-
-  // Move the cursor
-  function onMouseMove(e: MouseEvent) {
-    gsap.to($bigBall, { duration: 0.2, x: e.clientX - 15, y: e.clientY - 15 });
-    gsap.to($smallBall, { duration: 0.1, x: e.clientX - 5, y: e.clientY - 7 });
-  }
-
-  // Hover an element
-  function onMouseHover() {
-    gsap.to($bigBall, { duration: 0.2, scale: 4 });
-  }
-  function onMouseHoverOut() {
-    gsap.to($bigBall, { duration: 0.2, scale: 1 });
-  }
-</script>
